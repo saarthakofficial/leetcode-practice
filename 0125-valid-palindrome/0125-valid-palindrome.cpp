@@ -25,7 +25,6 @@ public:
             }
         }
         for (int j = 0; j < (temp.size()/2); j++){
-            cout<<temp[j]<<" "<<temp[temp.size()-1-j]<<endl;
             if (temp[j]!=temp[temp.size()-1-j]){
                 return false;
             }
