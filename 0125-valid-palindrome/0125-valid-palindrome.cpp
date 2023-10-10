@@ -1,23 +1,33 @@
 class Solution {
 public:
-    bool isPalindrome(string s) {
-        int start = 0;
-        int end = s.size() - 1;
-        while (start<=end){
-            if (!isalnum(s[start])){
-                start++;
-                continue;
+    bool isValid(char c){
+        if ((c>='a' && c<='z') || (c>='A' && c<='Z') || (c>='0' && c<='9')){
+            return true;
+        }
+        return false;
+    }
+    char lowerCase(char c){
+        char lower;
+        if ((c>='a' && c<='z') || (c>='0' && c<='9')){
+            return c;
+        }
+        else if (c>='A' && c<='Z'){
+            lower = c - 'A' + 'a';
+            return lower;
+        }
+        return c;
+    }
+    bool isPalindrome(string s){
+        string temp = "";
+        for (int i = 0; i <= s.size() - 1; i++){
+            if (isValid(lowerCase(s[i]))){
+                temp.push_back(lowerCase(s[i]));
             }
-            if (!isalnum(s[end])){
-                end--;
-                continue;
-            }
-            if (tolower(s[start])!=tolower(s[end])){
+        }
+        for (int j = 0; j < (temp.size()/2); j++){
+            cout<<temp[j]<<" "<<temp[temp.size()-1-j]<<endl;
+            if (temp[j]!=temp[temp.size()-1-j]){
                 return false;
-            }
-            else{
-                start++;
-                end--;
             }
         }
         return true;
