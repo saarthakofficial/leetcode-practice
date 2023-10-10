@@ -8,10 +8,9 @@ public:
                 if (i!=0){
                     i-=1;
                 }
+                continue;
             }
-            else{
-                i++;
-            }
+            i++;
         }
         return s;
     }
