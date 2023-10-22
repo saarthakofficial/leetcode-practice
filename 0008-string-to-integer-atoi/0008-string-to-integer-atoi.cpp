@@ -34,7 +34,6 @@ public:
                     int digit = c - '0';
                     i = i * 10 + digit;
                     
-                    // Check for overflow
                     if (sign == 1 && i > INT_MAX) {
                         return INT_MAX;
                     }
